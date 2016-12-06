@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Задача №2</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Тестовое задание №2</h2>
+            <p>Функция на JavaScript с использованием jQuery, которая принимает URL, делает GET-запрос на сервер и отображает ответ (или ошибку) в
+                модальном окне Bootstrap.</p>
+            <p>Модальное окно задано в HTML и передается в скрипт через id, содержимое загружается в iframe.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputUrl" placeholder="Введите адрес http://....">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="loadButton">Загрузить</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="actionsModalLabel" aria-hidden="true" id="modal1">
+    <div class="modal-dialog" style="height: 90%;">
+        <div class="modal-content" style="height: 100%;">
+            <div class="modal-body" style="height: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="actions.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+        actions.bindModal('#modal1');
+        jQuery('#loadButton').on('click', function () {
+            actions.showUrl(jQuery('#inputUrl').val());
+        });
+    });
+</script>
+</body>
+</html>
